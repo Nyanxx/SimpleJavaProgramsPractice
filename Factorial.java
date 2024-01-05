@@ -4,24 +4,29 @@ import java.util.Scanner;
 
 public class Factorial {
     public static void main(String[] args) {
+        System.out.println("Factorial is " + getFactorial(getOnlyPositiveNum()));
+    }
 
-        Scanner scan = new Scanner(System.in);
-        long num;
+    // factorial function
+    private static long getFactorial(long num){
         long factorial = 1;
-
-        // take only positive value
-        do {
-            System.out.print("Enter number: ");
-            num = scan.nextInt();
-        } while (num < 0);
-
-        // factorial logic
         while (num != 0 ){
             factorial = factorial * num;
             num--;
         }
+        return factorial;
+    }
 
-        System.out.println("Factorial is " + factorial);
-
+    // only positive value function
+    private static long getOnlyPositiveNum(){
+        // take only positive value
+        Scanner scan = new Scanner(System.in);
+        long num;
+        do {
+            System.out.print("Enter Number: ");
+            num = scan.nextInt();
+            if(num < 0) System.out.println("only positive number allowed!!!");;
+        } while (num < 0);
+        return num;
     }
 }
