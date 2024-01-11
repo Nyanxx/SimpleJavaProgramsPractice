@@ -3,13 +3,23 @@
 import java.util.Scanner;
 
 public class GreetThem {
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        // taking name form user
-        System.out.print("What is your name? - ");
-        String name = sc.next();
-        System.out.println("Hello! " + name +".How are you?");
+
+        // asking user for name with message
+        String name = askName("What is your name? - ");
+
+        // greeting user
+        greetThem(name);
     }
 
+    private static void greetThem(String name){
+        String capName = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+        System.out.println("Hello " + capName +". How are you?");
+    }
+
+    private static String askName(String msg){
+        Scanner sc = new Scanner(System.in);
+        System.out.print(msg);
+        return sc.next();
+    }
 }
